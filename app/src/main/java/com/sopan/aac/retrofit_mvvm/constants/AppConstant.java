@@ -10,4 +10,6 @@ public class AppConstant {
     public static final String BASE_URL = "https://newsapi.org/";
     public static final String API_KEY = "bac7c2dd25ce48248f8728506c69ffb3";
     public static final String ARTICLE_QUERY = "movies";
+
+    public static final String MYSQL_BASE_URL = "https://dictatorial-bows.000webhostapp.com/";
 }

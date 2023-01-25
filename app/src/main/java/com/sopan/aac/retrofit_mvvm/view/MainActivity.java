@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
      * @param @null
      */
     private void initialization() {
-        progress_circular_movie_article = (ProgressBar) findViewById(R.id.progress_circular_movie_article);
-        my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
+        progress_circular_movie_article = findViewById(R.id.progress_circular_movie_article);
+        my_recycler_view = findViewById(R.id.my_recycler_view);
 
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(MainActivity.this);
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         my_recycler_view.setAdapter(adapter);
 
         // View Model
-        articleViewModel = ViewModelProviders.of(this).get(ArticleViewModel.class);
+        articleViewModel = new ViewModelProvider(this).get(ArticleViewModel.class);
     }
 
     /**
@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
     private void getMovieArticles() {
         articleViewModel.getArticleResponseLiveData().observe(this, articleResponse -> {
             if (articleResponse != null) {
-
                 progress_circular_movie_article.setVisibility(View.GONE);
                 List<Article> articles = articleResponse.getArticles();
                 articleArrayList.addAll(articles);

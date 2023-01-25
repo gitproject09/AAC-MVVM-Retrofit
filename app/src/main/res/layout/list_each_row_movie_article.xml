@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/black">
+    android:background="@android:color/black"
+    android:layout_margin="1dp"
+    android:padding="2dp">
 
-    <ImageView
+    <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/imgViewCover"
-        android:layout_width="120dp"
-        android:layout_height="160dp"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerVertical="true"
+        android:adjustViewBounds="true"
+        android:scaleType="fitXY"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+    <!--<ImageView
+        android:id="@+id/imgViewCover"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginBottom="5dp"
-        android:scaleType="centerCrop" />
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop" />-->
 
     <LinearLayout
         android:layout_width="match_parent"

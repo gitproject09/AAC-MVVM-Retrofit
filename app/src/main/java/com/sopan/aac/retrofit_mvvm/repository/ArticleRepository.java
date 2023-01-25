@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.sopan.aac.retrofit_mvvm.response.ArticleResponse;
-import com.sopan.aac.retrofit_mvvm.retrofit.ApiRequest;
+import com.sopan.aac.retrofit_mvvm.retrofit.ApiService;
 import com.sopan.aac.retrofit_mvvm.retrofit.RetrofitRequest;
 
 import retrofit2.Call;
@@ -15,10 +15,10 @@ import retrofit2.Response;
 
 public class ArticleRepository {
     private static final String TAG = ArticleRepository.class.getSimpleName();
-    private ApiRequest apiRequest;
+    private ApiService apiRequest;
 
     public ArticleRepository() {
-        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiRequest.class);
+        apiRequest = RetrofitRequest.getRetrofitInstance().create(ApiService.class);
     }
 
     public LiveData<ArticleResponse> getMovieArticles(String query, String key) {
