@@ -4,7 +4,7 @@
 # Android-AAC-MVVM-Retrofit+JAVA
 This repository contains Android Architecture Components (LiveData, View Model and MVVM with retrofit for consuming rest api) 
 
-Trusted Web - Android
+Android-AAC-MVVM-Retrofit+JAVA
 ---------------------
 
  * This repository contains Android Architecture Components (LiveData, View Model and MVVM with retrofit for consuming rest api) 
