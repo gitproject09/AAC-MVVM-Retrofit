@@ -1,11 +1,8 @@
 # [AAC-MVVM-Retrofit+JAVA - Android][published url]
 ## Developer: [Sopan Ahmed][instructor url]
 
-# Android-AAC-MVVM-Retrofit+JAVA
-This repository contains Android Architecture Components (LiveData, View Model and MVVM with retrofit for consuming rest api) 
-
 Android-AAC-MVVM-Retrofit+JAVA
----------------------
+-----------------------------
 
  * This repository contains Android Architecture Components (LiveData, View Model and MVVM with retrofit for consuming rest api) 
 
