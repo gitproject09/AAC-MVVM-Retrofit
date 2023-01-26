@@ -2,7 +2,7 @@ package com.sopan.aac.retrofit_mvvm.repository;
 
 import android.util.Log;
 
-import com.sopan.aac.retrofit_mvvm.response.MemberListResponse;
+import com.sopan.aac.retrofit_mvvm.response.RegListResponse;
 import com.sopan.aac.retrofit_mvvm.retrofit.ApiService;
 import com.sopan.aac.retrofit_mvvm.retrofit.RetrofitRequest;
 
@@ -12,34 +12,34 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class MemberListRepository {
-    private static final String TAG = MemberListRepository.class.getSimpleName();
+public class RegListRepository {
+    private static final String TAG = RegListRepository.class.getSimpleName();
     private ApiService apiRequest;
 
-    public MemberListRepository() {
+    public RegListRepository() {
         apiRequest = RetrofitRequest.getAnotherRetrofitInstance().create(ApiService.class);
     }
 
-    public LiveData<MemberListResponse> getMemberList(String mobile) {
+    public LiveData<RegListResponse> getRegListFromDB(String mobile) {
 
-        final MutableLiveData<MemberListResponse> data = new MutableLiveData<>();
+        final MutableLiveData<RegListResponse> data = new MutableLiveData<>();
 
-        apiRequest.getMemberList(mobile)
+        apiRequest.getRegList(mobile)
                 .enqueue(new Callback<>() {
 
                     @Override
-                    public void onResponse(Call<MemberListResponse> call, Response<MemberListResponse> response) {
+                    public void onResponse(Call<RegListResponse> call, Response<RegListResponse> response) {
                         Log.d(TAG, "onResponse response:: " + response);
 
                         if (response.body() != null) {
                             data.setValue(response.body());
-                            Log.d(TAG, "Member total Size:: " + response.body().getMemberLists().size());
-                            Log.d(TAG, "Member Status:: " + response.body().getStatus());
+                            Log.d(TAG, "Reg total Size:: " + response.body().getRegLists().size());
+                            Log.d(TAG, "Reg Status:: " + response.body().getStatus());
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<MemberListResponse> call, Throwable t) {
+                    public void onFailure(Call<RegListResponse> call, Throwable t) {
                         data.setValue(null);
                     }
                 });

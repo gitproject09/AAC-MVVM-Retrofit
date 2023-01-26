@@ -1,7 +1,7 @@
 package com.sopan.aac.retrofit_mvvm.retrofit;
 
 import com.sopan.aac.retrofit_mvvm.response.ArticleResponse;
-import com.sopan.aac.retrofit_mvvm.response.MemberListResponse;
+import com.sopan.aac.retrofit_mvvm.response.RegListResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -17,6 +17,6 @@ public interface ApiService {
 
     @FormUrlEncoded
     @POST("member/member_list.php")
-    Call<MemberListResponse> getMemberList(@Field("mobile") String mobile);
+    Call<RegListResponse> getRegList(@Field("mobile") String mobile);
 
 }

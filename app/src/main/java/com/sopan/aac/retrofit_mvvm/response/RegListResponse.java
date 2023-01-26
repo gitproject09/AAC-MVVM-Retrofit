@@ -2,12 +2,11 @@ package com.sopan.aac.retrofit_mvvm.response;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.sopan.aac.retrofit_mvvm.model.Article;
-import com.sopan.aac.retrofit_mvvm.model.MemberList;
+import com.sopan.aac.retrofit_mvvm.model.RegList;
 
 import java.util.List;
 
-public class MemberListResponse {
+public class RegListResponse {
 
     @SerializedName("status")
     @Expose
@@ -19,7 +18,7 @@ public class MemberListResponse {
 
     @SerializedName("data")
     @Expose
-    private List<MemberList> memberLists = null;
+    private List<RegList> regLists = null;
 
     public int getStatus() {
         return status;
@@ -37,11 +36,11 @@ public class MemberListResponse {
         this.message = message;
     }
 
-    public List<MemberList> getMemberLists() {
-        return memberLists;
+    public List<RegList> getRegLists() {
+        return regLists;
     }
 
-    public void setMemberLists(List<MemberList> memberLists) {
-        this.memberLists = memberLists;
+    public void setRegLists(List<RegList> regLists) {
+        this.regLists = regLists;
     }
 }

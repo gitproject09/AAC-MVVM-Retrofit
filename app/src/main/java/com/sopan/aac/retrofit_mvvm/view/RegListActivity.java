@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.ProgressBar;
 
 import com.sopan.aac.retrofit_mvvm.R;
-import com.sopan.aac.retrofit_mvvm.adapter.MemberListAdapter;
-import com.sopan.aac.retrofit_mvvm.model.MemberList;
-import com.sopan.aac.retrofit_mvvm.view_model.MemberListViewModel;
+import com.sopan.aac.retrofit_mvvm.adapter.RegListAdapter;
+import com.sopan.aac.retrofit_mvvm.model.RegList;
+import com.sopan.aac.retrofit_mvvm.view_model.RegListViewModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,22 +18,22 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class MemberListActivity extends AppCompatActivity {
+public class RegListActivity extends AppCompatActivity {
 
-    private static final String TAG = MemberListActivity.class.getSimpleName();
+    private static final String TAG = RegListActivity.class.getSimpleName();
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private LinearLayoutManager layoutManager;
-    private MemberListAdapter adapter;
-    private ArrayList<MemberList> memberLists = new ArrayList<>();
-    MemberListViewModel memberListViewModel;
+    private RegListAdapter adapter;
+    private ArrayList<RegList> regLists = new ArrayList<>();
+    RegListViewModel regListViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_member_list);
+        setContentView(R.layout.activity_reg_list);
 
         initialization();
 
@@ -49,21 +49,21 @@ public class MemberListActivity extends AppCompatActivity {
         progressBar = findViewById(R.id.progressBar);
         recyclerView = findViewById(R.id.rvMemberList);
         // use a linear layout manager
-        layoutManager = new LinearLayoutManager(MemberListActivity.this);
+        layoutManager = new LinearLayoutManager(RegListActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         recyclerView.setHasFixedSize(true);
         // adapter
-        adapter = new MemberListAdapter(MemberListActivity.this, memberLists);
+        adapter = new RegListAdapter(RegListActivity.this, regLists);
         recyclerView.setAdapter(adapter);
 
         // View Model
-        memberListViewModel = new ViewModelProvider(this).get(MemberListViewModel.class);
-        memberListViewModel.makeApiCall("01716253216");
+        regListViewModel = new ViewModelProvider(this).get(RegListViewModel.class);
+        regListViewModel.makeApiCall("01716253216");
 
         Log.d("MemberListViewModel", "Call Finish");
-      //  memberListViewModel = new ViewModelProvider(this, new MemberListViewModel(this.getApplication(), "01716253216")).get(MemberListViewModel.class);
+      //  regListViewModel = new ViewModelProvider(this, new MemberListViewModel(this.getApplication(), "01716253216")).get(MemberListViewModel.class);
 
     }
 
@@ -73,11 +73,11 @@ public class MemberListActivity extends AppCompatActivity {
      * @param @null
      */
     private void getRegisterMemberList() {
-        memberListViewModel.getMemberListResponseLiveData().observe(this, memberListResponse -> {
-            if (memberListResponse != null) {
+        regListViewModel.getRegListResponseLiveData().observe(this, regListResponse -> {
+            if (regListResponse != null) {
                 progressBar.setVisibility(View.GONE);
-                List<MemberList> memLists = memberListResponse.getMemberLists();
-                this.memberLists.addAll(memLists);
+                List<RegList> memLists = regListResponse.getRegLists();
+                this.regLists.addAll(memLists);
                 adapter.notifyDataSetChanged();
             }
         });

@@ -1,6 +1,6 @@
 package com.sopan.aac.retrofit_mvvm.model;
 
-public class MemberList {
+public class RegList {
 
     private String id;
     private String name;
